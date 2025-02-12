@@ -4,8 +4,10 @@ const port = 3000;
 
 const postRoutes = require('./routers/posts');
 
+app.use(express.static('public'))
 
-app.use('/posts', postRoutes);
+
+app.use('/api/posts', postRoutes);
 
 
 app.get('/', (req, res) => {

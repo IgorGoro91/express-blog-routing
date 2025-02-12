@@ -3,13 +3,6 @@ const express = require('express');
 const router = express.Router();
 
 
-const posts = [
-    { id: 1, titolo: "Il mio primo post", contenuto: "Contenuto del primo post" },
-    { id: 2, titolo: "Viaggio in montagna", contenuto: "Esperienza tra le montagne" },
-    { id: 3, titolo: "Ricetta della pasta", contenuto: "Come fare una pasta perfetta" },
-    { id: 4, titolo: "Novità tecnologiche", contenuto: "Ultime news tech" },
-    { id: 5, titolo: "Allenamento a casa", contenuto: "Fitness senza palestra" }
-];
 
 
 router.get('/', (req, res) => {
@@ -18,8 +11,8 @@ router.get('/', (req, res) => {
 
 
 router.get('/:id', (req, res) => {
-    const { id } = req.params;
-    res.send(`Dettaglio del post ${id}`);
+    
+    res.send(`Dettaglio del post ${req.params.id}`);
 });
 
 
@@ -29,14 +22,20 @@ router.post('/', (req, res) => {
 
 
 router.put('/:id', (req, res) => {
-    const { id } = req.params;
-    res.send(`Aggiornamento del post ${id}`);
+    
+    res.send(`Modifica itegrale del post ${req.params.id}`);
+});
+
+
+router.patch('/:id', (req, res) => {
+    
+    res.send(`Modifica parziale del post ${req.params.id}`);
 });
 
 
 router.delete('/:id', (req, res) => {
-    const { id } = req.params;
-    res.send(`Cancellazione del post ${id}`);
+    
+    res.send(`Cancellazione del post ${req.params.id}`);
 });
 
 module.exports = router;
